@@ -1,5 +1,6 @@
 import Layout from '../../components/layout'
 import type { NextPage } from 'next'
+import FloatingButton from '../../components/floating-button'
 
 const Roaster: NextPage = () => {
   return (
@@ -14,6 +15,7 @@ const Roaster: NextPage = () => {
             </div>
           </div>
         ))}
+        <FloatingButton href="/roasters/upload">추가</FloatingButton>
       </div>
     </Layout>
   )

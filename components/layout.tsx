@@ -1,18 +1,18 @@
 import React from "react";
-import Link from "next/Link";
+import Link from "next/link";
 import { cls } from "../libs/utils"
 import { useRouter } from "next/router";
 
 interface LayoutProps {
     title?: string;
-    canGoback?: boolean;
+    canGoBack?: boolean;
     hasTabBar?: boolean;
     children: React.ReactNode;
 }
 
 export default function Layout({
     title,
-    canGoback,
+    canGoBack,
     hasTabBar,
     children,
 }: LayoutProps) {
@@ -23,7 +23,10 @@ export default function Layout({
     return (
         <div>
             <div className="bg-white w-full h-12 justify-center text-lg px-10 font-medium fixed text-gray-800 border-b top-0 flex items-center">
-                <span>{title}</span>
+                {canGoBack ? (
+                    <button onClick={onClick} className="absolute left-4">Back</button>
+                ) : null }
+                {title ? (<span className={cls(canGoBack ? "mx-auto" : "", "")}>{title}</span>) : null}
             </div>
             <div className={cls("pt-12", hasTabBar ? "pb-24" : "")}>{children}</div>
             <nav className="fixed bg-white max-w-2xl border-t bottom-0 w-full px-10 pb-5 pt-5 flex justify-between text-xs">
@@ -55,6 +58,11 @@ export default function Layout({
                 <Link href="/schedules">
                     <div className="flex flex-col justify-center text-lg items-center hover:cursor-pointer">
                         <span>Schedule</span>
+                    </div>
+                </Link>
+                <Link href="/memos">
+                    <div className="flex flex-col justify-center text-lg items-center hover:cursor-pointer">
+                        <span>Memo</span>
                     </div>
                 </Link>
             </nav>

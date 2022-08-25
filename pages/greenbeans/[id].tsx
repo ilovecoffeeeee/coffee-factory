@@ -1,13 +1,11 @@
-import Layout from '../components/layout'
+import Layout from '../../components/layout'
 import type { NextPage } from 'next'
-import FloatingButton from '../components/floating-button'
 
-const Home: NextPage = () => {
+const GreenBeanDetail: NextPage = () => {
   return (
-    <Layout title="Home" hasTabBar>
+    <Layout title="GreenBean" canGoBack>
       <div className="flex flex-col space-y-4 divide-y">
-        {[1, 2, 3, 4, 5].map((_, i) => (
-          <div className="flex justify-start pl-2 pt-5" key={i}>
+          <div className="flex justify-start pl-2 pt-5">
             <div className="w-24 h-24 bg-slate-500 rounded"/>
             <div className="flex flex-col pl-3">
               <span>지역명</span>
@@ -16,11 +14,9 @@ const Home: NextPage = () => {
               <span>Lot No. 234-1234</span>
             </div>
           </div>
-        ))}
-        <FloatingButton href="/greenbeans/upload">추가</FloatingButton>
       </div>
     </Layout>
   )
 }
 
-export default Home
+export default GreenBeanDetail

@@ -1,5 +1,6 @@
 import Layout from '../../components/layout'
 import type { NextPage } from 'next'
+import FloatingButton from '../../components/floating-button'
 
 const Blend: NextPage = () => {
   return (
@@ -16,6 +17,7 @@ const Blend: NextPage = () => {
             </div>
           </div>
         ))}
+        <FloatingButton href="/blends/upload">추가</FloatingButton>
       </div>
     </Layout>
   )
