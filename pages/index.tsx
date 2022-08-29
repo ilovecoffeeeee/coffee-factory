@@ -13,6 +13,7 @@ const Home: NextPage = () => {
               <span>지역명</span>
               <span>생두명</span>
               <span>로스터</span>
+              <span>사용기간</span>
               <span>Lot No. 234-1234</span>
             </div>
           </div>
