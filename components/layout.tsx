@@ -31,37 +31,37 @@ export default function Layout({
             <div className={cls("pt-12", hasTabBar ? "pb-24" : "")}>{children}</div>
             <nav className="fixed bg-white max-w-5xl border-t bottom-0 w-full px-10 pb-5 pt-5 flex justify-between text-xs">
                 <Link href="/">
-                    <div className="flex flex-col justify-center text-lg items-center hover:cursor-pointer">
+                    <div className={cls("flex flex-col justify-center text-lg items-center hover:cursor-pointer", router.pathname === "/" ? "text-green-600" : "hover:text-gray-500 transition-colors")}>
                         <span>Green</span>
                     </div>
                 </Link>
                 <Link href="/silos">
-                    <div className="flex flex-col justify-center text-lg items-center hover:cursor-pointer">
+                    <div className={cls("flex flex-col justify-center text-lg items-center hover:cursor-pointer", router.pathname === "/silos" ? "text-green-600" : "hover:text-gray-500 transition-colors")}>
                         <span>Silo</span>
                     </div>
                 </Link>
                 <Link href="/blends">
-                    <div className="flex flex-col justify-center text-lg items-center hover:cursor-pointer">
+                    <div className={cls("flex flex-col justify-center text-lg items-center hover:cursor-pointer", router.pathname === "/blends" ? "text-green-600" : "hover:text-gray-500 transition-colors")}>
                         <span>Blend</span>
                     </div>
                 </Link>
                 <Link href="/roasters">
-                    <div className="flex flex-col justify-center text-lg items-center hover:cursor-pointer">
+                    <div className={cls("flex flex-col justify-center text-lg items-center hover:cursor-pointer", router.pathname === "/roasters" ? "text-green-600" : "hover:text-gray-500 transition-colors")}>
                         <span>Roaster</span>
                     </div>
                 </Link>
                 <Link href="/products">
-                    <div className="flex flex-col justify-center text-lg items-center hover:cursor-pointer">
+                    <div className={cls("flex flex-col justify-center text-lg items-center hover:cursor-pointer", router.pathname === "/products" ? "text-green-600" : "hover:text-gray-500 transition-colors")}>
                         <span>Products</span>
                     </div>
                 </Link>
                 <Link href="/schedules">
-                    <div className="flex flex-col justify-center text-lg items-center hover:cursor-pointer">
+                    <div className={cls("flex flex-col justify-center text-lg items-center hover:cursor-pointer", router.pathname === "/schedules" ? "text-green-600" : "hover:text-gray-500 transition-colors")}>
                         <span>Schedule</span>
                     </div>
                 </Link>
                 <Link href="/memos">
-                    <div className="flex flex-col justify-center text-lg items-center hover:cursor-pointer">
+                    <div className={cls("flex flex-col justify-center text-lg items-center hover:cursor-pointer", router.pathname === "/memos" ? "text-green-600" : "hover:text-gray-500 transition-colors")}>
                         <span>Memo</span>
                     </div>
                 </Link>
