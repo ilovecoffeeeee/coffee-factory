@@ -32,6 +32,11 @@ export default function Layout({
             <nav className="fixed bg-white max-w-5xl border-t bottom-0 w-full px-10 pb-5 pt-5 flex justify-between text-xs">
                 <Link href="/">
                     <div className={cls("flex flex-col justify-center text-lg items-center hover:cursor-pointer", router.pathname === "/" ? "text-green-600" : "hover:text-gray-500 transition-colors")}>
+                        <span>Main</span>
+                    </div>
+                </Link>
+                <Link href="/greenbeans">
+                    <div className={cls("flex flex-col justify-center text-lg items-center hover:cursor-pointer", router.pathname === "/greenbeans" ? "text-green-600" : "hover:text-gray-500 transition-colors")}>
                         <span>Green</span>
                     </div>
                 </Link>

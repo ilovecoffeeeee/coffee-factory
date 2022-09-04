@@ -7,6 +7,11 @@ const Memo: NextPage = () => {
   return (
     <Layout title="Memo" hasTabBar>
       <div className="flex flex-col space-y-4 divide-y">
+        <Note date="09/04" day="일요일" 
+          memo={[
+            "Main Tap 추가, 한번에 상황을 볼 수 있는 요약본 만들기",
+            "메모 추가 가능 만들기",
+            ]}/>        
         <Note date="09/03" day="토요일" 
           memo={[
             "네비게이터 현제 페이지 색상 설정하기",
