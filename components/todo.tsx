@@ -1,11 +1,11 @@
 import type { NextPage } from 'next'
 
-interface NoteProps {
+interface TodoProps {
     memo: string[];
     [key: string]: any;
 }
 
-export default function Note({date, day, memo}:NoteProps) {
+export default function Note({date, day, memo}:TodoProps) {
     return (
         <div className="flex justify-start pl-2 pt-5">
         <div className="flex flex-col justify-center items-center w-24 h-24 bg-slate-500 rounded space-y-1">

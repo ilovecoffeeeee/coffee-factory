@@ -1,5 +1,5 @@
 import Layout from '../../components/layout'
-import Note from '../../components/note'
+import Todo from '../../components/todo'
 import type { NextPage } from 'next'
 import FloatingButton from '../../components/floating-button'
 
@@ -7,19 +7,33 @@ const Memo: NextPage = () => {
   return (
     <Layout title="Memo" hasTabBar>
       <div className="flex flex-col space-y-4 divide-y">
-        <Note date="09/04" day="일요일" 
+        <Todo date="09/07" day="수요일" 
+          memo={[
+            "useMutation 작성 - 패치, 로딩, 데이타, 에러 처리",
+            "withHandler 작성 - GET POST DELETE 구분 및 보호, NextJS 기능 사용자화",
+            "paths 설정 - baseUrl 설정 후 paths 설정 ../../libs -> @libs",
+            "다음 할 일 - User Authentication"
+            ]}/>
+        <Todo date="09/05" day="월요일" 
+          memo={[
+            "Enter 페이지 작성",
+            "Tailwind Forms (코어 플러그인) 설치 -> npm i @tailwindcss/forms",
+            "Memo Upload Page 작성",
+            "LayOut - QC 추가",
+            ]}/>   
+        <Todo date="09/04" day="일요일" 
           memo={[
             "Main Tap 추가, 한번에 상황을 볼 수 있는 요약본 만들기",
-            "메모 추가 가능 만들기",
+            "메모 추가 가능 만들기 -> 유저 로그인 후 가능함",
             ]}/>        
-        <Note date="09/03" day="토요일" 
+        <Todo date="09/03" day="토요일" 
           memo={[
             "네비게이터 현제 페이지 색상 설정하기",
             "플라즈마 설치.",
             "coffee-factory 데이터 베이스 생성.",
             "다음일정은 #7 react-hook-form 관련 강의 보기.",
             ]}/>
-        <Note date="08/29" day="월요일" 
+        <Todo date="08/29" day="월요일" 
           memo={[
             "메모에 사용할 컴포넌트 만들기 시도하기.",
             "배열사용해서 항목당 줄바꿈 만들기.",
@@ -30,7 +44,7 @@ const Memo: NextPage = () => {
             "toDoList 처럼 체크 항목 적용방법 생각해보기.",
             "항목 클릭시 내용표시, 수정버튼, 댓글버튼 추가방법 생각해보기.",
             ]}/>
-        <Note date="08/25" day="목요일" memo={["각 Page 를 만들었다.",  "LayOut Component 에 GoBack 버튼을 만들었다.", "페이지 별 업로드 기능을 가진 플로팅 버튼을 배치하였다."]}/>
+        <Todo date="08/25" day="목요일" memo={["각 Page 를 만들었다.",  "LayOut Component 에 GoBack 버튼을 만들었다.", "페이지 별 업로드 기능을 가진 플로팅 버튼을 배치하였다."]}/>
           <FloatingButton href="/memos/upload">추가</FloatingButton>
       </div>
     </Layout>

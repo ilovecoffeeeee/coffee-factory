@@ -1,15 +1,21 @@
+import { UseFormRegisterReturn } from "react-hook-form";
+
 interface InputProps {
     label: string;
     name: string;
-    kind?: "text" | "memo"
-    [key:string]: any;
+    kind?: "text" | "phone" | "price";
+    type: string;
+    register: UseFormRegisterReturn;
+    required: boolean;
 }
 
 export default function Input({
     label,
     name,
-    kind = "text",
-    ...rest
+    kind="text",
+    register,
+    type,
+    required,
 }: InputProps) {
     return (
         <div>
@@ -23,16 +29,29 @@ export default function Input({
                 <div className="rounded-md relative flex items-center shadow-sm">
                     <input 
                         id={name}
-                        {...rest}
+                        required={required}
+                        {...register}
+                        type={type}
                         className="
                             appearance-none
-                            w-full
-                            px-3 py-2
-                            border
-                            border-gray-300
-                            rounded-sm shadow-sm
+                            w-full px-3 py-2
+                            border border-gray-300
+                            rounded-md shadow-sm placeholder-gray-400 
+                            focus:outline-none focus:ring-green-500
+                            focus:border-green-500
                             "
                     />
+                </div>
+            ) : null}
+            {kind === "phone" ? (
+                <div className="flex rounded-md shadow-sm">
+                    <span className="flex items-center justify-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 select-none text-sm">+82</span>
+                    <input
+                        id={name}
+                        required={required}
+                        {...register}
+                        type={type}
+                        className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md rounded-l-none shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500" />
                 </div>
             ) : null}
         </div>

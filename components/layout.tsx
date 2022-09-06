@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { cls } from "../libs/utils"
+import { cls } from "@libs/client/utils"
 import { useRouter } from "next/router";
 
 interface LayoutProps {
@@ -55,6 +55,11 @@ export default function Layout({
                         <span>Roaster</span>
                     </div>
                 </Link>
+                <Link href="/qc">
+                    <div className={cls("flex flex-col justify-center text-lg items-center hover:cursor-pointer", router.pathname === "/qc" ? "text-green-600" : "hover:text-gray-500 transition-colors")}>
+                        <span>QC</span>
+                    </div>
+                </Link>                
                 <Link href="/products">
                     <div className={cls("flex flex-col justify-center text-lg items-center hover:cursor-pointer", router.pathname === "/products" ? "text-green-600" : "hover:text-gray-500 transition-colors")}>
                         <span>Products</span>

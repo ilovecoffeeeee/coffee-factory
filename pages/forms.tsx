@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { FieldErrors, useForm } from "react-hook-form";
 
 interface LoginForm {
@@ -8,7 +9,7 @@ interface LoginForm {
 }
 
 export default function Forms() {
-    const {register, handleSubmit} = useForm<LoginForm>({
+    const {register, handleSubmit, setValue, setFocus} = useForm<LoginForm>({
     });
     const onValid = () => {
         console.log("valid")
@@ -16,6 +17,11 @@ export default function Forms() {
     const onInvalid = (errors: FieldErrors) => {
         console.log(errors)
     };
+    setValue("username", "Hello");
+    useEffect(() => {
+        setFocus("password");
+    }, [setFocus])
+
     return (
         <form onSubmit={handleSubmit(onValid, onInvalid)}>
             <input {...register("username", {
