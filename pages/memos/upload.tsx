@@ -1,14 +1,20 @@
-import Input from '../../components/input';
-import Layout from '../../components/layout';
+import Input from '@components/input';
+import Layout from '@components/layout';
 import type { NextPage } from 'next';
-import TextArea from '../../components/textarea';
+import TextArea from '@components/textarea';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
 
+
+// Memo counter add
+// Memo Edit
+// add delete
+
 interface MemoForm {
   memo?: string;
 }
+
 
 const Upload: NextPage = () => {
   const router = useRouter();

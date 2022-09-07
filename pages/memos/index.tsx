@@ -1,17 +1,25 @@
-import Layout from '../../components/layout'
-import Todo from '../../components/todo'
+import Layout from '@components/layout'
+import Todo from '@components/todo'
 import type { NextPage } from 'next'
-import FloatingButton from '../../components/floating-button'
+import FloatingButton from '@components/floating-button'
 
 const Memo: NextPage = () => {
   return (
     <Layout title="Memo" hasTabBar>
       <div className="flex flex-col space-y-4 divide-y">
+      <Todo date="09/08" day="목요일" 
+          memo={[
+            "User Authentication - token 인증 email 인증 없이 저장된 메일 주소 및 전화번호로만 로그인 하는 수준으로 작성 (완료)",
+            "password 만들기",
+            "Memo upload page 에서 버튼을 누르면 입력항목이 늘어나는 기능 생각하기. - prisma 에서 memo_count 추가가 필요하다고 생각된다",
+            "client.upsert 기능을 활용 할 수 있는지 검토해 보기",
+            "다음 할 일 - iron sessions 참고하기",
+            ]}/>        
         <Todo date="09/07" day="수요일" 
           memo={[
-            "useMutation 작성 - 패치, 로딩, 데이타, 에러 처리",
-            "withHandler 작성 - GET POST DELETE 구분 및 보호, NextJS 기능 사용자화",
-            "paths 설정 - baseUrl 설정 후 paths 설정 ../../libs -> @libs",
+            "useMutation 작성 - 패치, 로딩, 데이타, 에러 처리 (완료)",
+            "withHandler 작성 - GET POST DELETE 구분 및 보호, NextJS 기능 사용자화 (완료)",
+            "paths 설정 - baseUrl 설정 후 paths 설정 ../../libs -> @libs (완료)",
             "다음 할 일 - User Authentication"
             ]}/>
         <Todo date="09/05" day="월요일" 
