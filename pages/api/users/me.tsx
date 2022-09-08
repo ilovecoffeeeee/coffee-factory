@@ -6,23 +6,19 @@ import { withApiSession } from '@libs/server/withSession';
 async function handler (
     req:NextApiRequest, res:NextApiResponse<ResponseType>
 ){
-    console.log(req.session)
-    const { password } = req.body;
-    const exists = await client.password.findUnique({
+    const profile = await client.user.findUnique({
         where: {
-            payload: password,
-        },
+            id: req.session.user?.id
+        }
+    })
+    res.json({
+        ok:true,
+        profile,
     });
-    if(!exists) return res.status(404).end();
-    req.session.user = {
-        id: exists.userId
-    }
-    await req.session.save();
-    res.json({ok:true});
 }
 
 export default withApiSession(withHandler({
-    method:"POST",
+    method:"GET",
     handler,
     isPrivate: true,
 }));

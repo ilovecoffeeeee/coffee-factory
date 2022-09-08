@@ -1,13 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import client from "@libs/server/client";
-import withHandler from "@libs/server/withHandler";
+import withHandler, { ResponseType } from "@libs/server/withHandler";
 
 
 async function handler (
-    req:NextApiRequest, res:NextApiResponse
+    req:NextApiRequest, res:NextApiResponse<ResponseType>
 ){
     const { phone, email } = req.body;
-    const payload = phone ? { phone: +phone } : {email}
+    const payload = phone ? { phone } : {email}
     let user;
     user = await client.user.findUnique({
         where : {
@@ -20,4 +20,8 @@ async function handler (
     });
 }
 
-export default withHandler("POST", handler)
+export default withHandler({
+    method:"POST",
+    handler,
+    isPrivate: false,
+})
