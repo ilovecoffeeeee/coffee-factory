@@ -6,7 +6,7 @@ import FloatingButton from '@components/floating-button'
 const Memo: NextPage = () => {
   return (
     <Layout title="Memo" hasTabBar>
-      <div className="flex flex-col space-y-4 divide-y">
+      <div className="flex flex-col justify-center space-y-4 divide-y">
         <Todo date="09/09" day="금요일" 
           memo={[
             "authorization 참조하기",

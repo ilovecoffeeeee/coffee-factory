@@ -22,14 +22,14 @@ export default function Layout({
     }
     return (
         <div>
-            <div className="bg-white w-full h-12 justify-center text-lg px-10 font-medium fixed text-gray-800 border-b top-0 flex items-center">
+            <div className="bg-white w-full max-w-4xl h-12 justify-center text-lg px-10 font-medium fixed text-gray-800 border-b top-0 flex items-center">
                 {canGoBack ? (
                     <button onClick={onClick} className="absolute left-4">Back</button>
                 ) : null }
                 {title ? (<span className={cls(canGoBack ? "mx-auto" : "", "")}>{title}</span>) : null}
             </div>
-            <div className={cls("pt-12", hasTabBar ? "pb-24" : "")}>{children}</div>
-            <nav className="fixed bg-white max-w-5xl border-t bottom-0 w-full px-10 pb-5 pt-5 flex justify-between text-xs">
+            <div className={cls("pt-12 flex flex-col w-full", hasTabBar ? "pb-24" : "")}>{children}</div>
+            <nav className="fixed bg-white max-w-4xl border-t bottom-0 w-full px-10 pb-5 pt-5 flex justify-between text-xs">
                 <Link href="/">
                     <div className={cls("flex flex-col justify-center text-lg items-center hover:cursor-pointer", router.pathname === "/" ? "text-green-600" : "hover:text-gray-500 transition-colors")}>
                         <span>Main</span>
