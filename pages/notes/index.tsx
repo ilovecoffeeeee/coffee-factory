@@ -2,11 +2,21 @@ import Layout from '@components/layout'
 import Todo from '@components/todo'
 import type { NextPage } from 'next'
 import FloatingButton from '@components/floating-button'
+import useSWR from 'swr'
+import { Note } from '@prisma/client'
 
-const Memo: NextPage = () => {
+interface NotesResponse {
+  ok: boolean;
+  notes: Note[];
+}
+
+const Note: NextPage = () => {
+  const { data } = useSWR<NotesResponse>("/api/notes")
+  console.log(data)
   return (
     <Layout title="Memo" hasTabBar>
       <div className="flex flex-col justify-center space-y-4 divide-y">
+        <div></div>
         <Todo date="09/09" day="금요일" 
           memo={[
             "authorization 참조하기",
@@ -57,10 +67,10 @@ const Memo: NextPage = () => {
             "항목 클릭시 내용표시, 수정버튼, 댓글버튼 추가방법 생각해보기.",
             ]}/>
         <Todo date="08/25" day="목요일" memo={["각 Page 를 만들었다.",  "LayOut Component 에 GoBack 버튼을 만들었다.", "페이지 별 업로드 기능을 가진 플로팅 버튼을 배치하였다."]}/>
-          <FloatingButton href="/memos/upload">추가</FloatingButton>
+          <FloatingButton href="/notes/upload">추가</FloatingButton>
       </div>
     </Layout>
   )
 }
 
-export default Memo
+export default Note

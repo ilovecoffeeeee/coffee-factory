@@ -3,9 +3,11 @@ import type { NextPage } from 'next'
 import FloatingButton from '@components/floating-button'
 import useUser from '@libs/server/useUser';
 import Head from 'next/head';
+import useSWR from 'swr';
 
 const Home: NextPage = () => {
   const { user, isLoading } = useUser();
+  const { data } = useSWR("/api/notes")
   return (
     <Layout title="Coffee Factory NOW" hasTabBar>
       <Head><title>Home</title></Head>

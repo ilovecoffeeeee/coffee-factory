@@ -19,6 +19,7 @@ model User {
   name String?
   avatar String?
   passwords Password[]
+  notes Note[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -28,6 +29,16 @@ model Password {
   payload String @unique
   user User @relation(fields:[userId], references: [id], onDelete: Cascade)
   userId Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Note {
+  id Int @id @default(autoincrement())
+  user User @relation(fields:[userId], references: [id], onDelete: Cascade)
+  userId Int
+  name String
+  description String @db.MediumText
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

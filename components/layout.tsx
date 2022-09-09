@@ -70,9 +70,9 @@ export default function Layout({
                         <span>Schedule</span>
                     </div>
                 </Link>
-                <Link href="/memos">
-                    <div className={cls("flex flex-col justify-center text-lg items-center hover:cursor-pointer", router.pathname === "/memos" ? "text-green-600" : "hover:text-gray-500 transition-colors")}>
-                        <span>Memo</span>
+                <Link href="/notes">
+                    <div className={cls("flex flex-col justify-center text-lg items-center hover:cursor-pointer", router.pathname === "/notes" ? "text-green-600" : "hover:text-gray-500 transition-colors")}>
+                        <span>Note</span>
                     </div>
                 </Link>
             </nav>
