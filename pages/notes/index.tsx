@@ -4,6 +4,7 @@ import type { NextPage } from 'next'
 import FloatingButton from '@components/floating-button'
 import useSWR from 'swr'
 import { Note } from '@prisma/client'
+import NoWorkResult from 'postcss/lib/no-work-result'
 
 interface NotesResponse {
   ok: boolean;
@@ -12,11 +13,25 @@ interface NotesResponse {
 
 const Note: NextPage = () => {
   const { data } = useSWR<NotesResponse>("/api/notes")
-  console.log(data)
+  console.log(data?.notes)
   return (
     <Layout title="Memo" hasTabBar>
       <div className="flex flex-col justify-center space-y-4 divide-y">
-        <div></div>
+        {data?.notes.map((note) => (
+          <Todo 
+            key={note.id}
+            date="테스트"
+            day="테스트"
+            memo={note.description.split("\n")}/>
+        )).reverse()}
+        <Todo date="09/18" day="일요일" 
+          memo={[
+            "입력된 문장 split()으로 나누어 넘버링하기.",
+            "최신 입력순부터 불러오는 방법 확인하기",
+            "날짜 및 요일 자동 기록 방법 생각하기",
+            "불러온 데이터를 .reverse 로 역순으로 만들수는 있으나, 로딩 후 순서가 바뀌는 모습이 보인다. 백엔드에서 역순으로 불러올 방법 생각해보기.",
+            "클릭 후 링크이동, 수정하기 저장하기 방법 생각하기",
+            ]}/>
         <Todo date="09/09" day="금요일" 
           memo={[
             "authorization 참조하기",

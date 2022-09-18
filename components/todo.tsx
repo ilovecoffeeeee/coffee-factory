@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import { isArray } from 'util';
 
 interface TodoProps {
     memo: string[];
@@ -16,7 +17,7 @@ export default function Note({date, day, memo}:TodoProps) {
             </div>
           </div>
           <div className="flex flex-col pl-3 text-xl space-y-2">
-            {memo.map((_, i) => <span className="" key={i}> {i+1}) {memo[i]}</span>)}
+            {memo.map((_, i) => (<span key={i}> {i+1}) {memo[i]}</span>))}
           </div>
         </div>
       </div>

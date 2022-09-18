@@ -27,7 +27,7 @@ export default function TextArea({
         id={name}
         {...register}
         className="mt-1 shadow-sm w-full focus:ring-green-500 rounded-md border-gray-300 focus:border-green-500 "
-        rows={3}
+        rows={8}
         {...rest}
       />
     </div>

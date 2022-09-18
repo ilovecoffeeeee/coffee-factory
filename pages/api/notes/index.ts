@@ -7,7 +7,9 @@ async function handler (
     req:NextApiRequest, res:NextApiResponse<ResponseType>
 ){
     if(req.method === "GET") {
-        const notes = await client.note.findMany({})
+        const notes = await client.note.findMany({
+            take: 10,
+        })
         res.json({
             ok:true,
             notes,

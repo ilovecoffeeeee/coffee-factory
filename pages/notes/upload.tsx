@@ -15,7 +15,7 @@ import { Note } from '@prisma/client';
 
 interface UploadNoteForm {
   name: string;
-  description: string;
+  description: string[];
 }
 
 interface UploadNoteMutation {
@@ -27,9 +27,10 @@ interface UploadNoteMutation {
 const Upload: NextPage = () => {
   const router = useRouter();
   const {register, handleSubmit,setFocus} = useForm<UploadNoteForm>();
-  const [uploadNote, {loading, data}] = useMutaion("/api/notes")
+  const [uploadNote, {loading, data}] = useMutaion<UploadNoteMutation>("/api/notes")
   const onValid = (data:UploadNoteForm) => {
     if(loading) return;
+    console.log(data.description)
     uploadNote(data)
   }
   useEffect(() => {
