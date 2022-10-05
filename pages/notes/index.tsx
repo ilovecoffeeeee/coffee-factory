@@ -17,13 +17,13 @@ const Note: NextPage = () => {
   return (
     <Layout title="Memo" hasTabBar>
       <div className="flex flex-col justify-center space-y-4 divide-y">
-        {data?.notes.map((note) => (
+        {/* {data?.notes?.map((note) => (
           <Todo 
             key={note.id}
             date="테스트"
             day="테스트"
             memo={note.description.split("\n")}/>
-        )).reverse()}
+        )).reverse()} */}
         <Todo date="09/18" day="일요일" 
           memo={[
             "입력된 문장 split()으로 나누어 넘버링하기.",
